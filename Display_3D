@@ -1,0 +1,395 @@
+ACLS
+COLOR 15,1
+BACKCOLOR #GRAY
+OPTION STRICT
+'==========
+VAR SCWH=400'Width
+VAR SCLT=240'Height
+DIM DISDP[512,512]
+DIM SPRI[512,512],SPLTX[0],SPLTY[0]
+GSAVE 5,0,0,512,512,SPRI,1
+'==========
+
+'(縺倥＆縺上ａ縺・ｌ縺・誾ｴ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ
+DEF ROT X,Y,R OUT X1,Y1'縺九＞縺ｦ繧薙℃繧・≧繧後▽
+X1=X*COS(R)-Y*SIN(R)
+Y1=X*SIN(R)+Y*COS(R)
+END
+
+DEF UV X,Y,Z OUT X1,Y1,Z1'縺溘ｓ縺・・繧ｯ繝医Ν
+DIM O=SQR(X*X+Y*Y+Z*Z)
+X1=X/O
+Y1=Y/O
+Z1=Z/O
+END
+
+DEF REDB X OUT A,R,G,B'16bitRGB繧医∩縺薙∩
+A=X MOD 2
+R=(X>>11)
+G=(X>>6) AND 31
+B=(X>>1) AND 31
+END
+
+
+DEF MARE(A,R,G,B)'16bitRGB縺､縺上ｋ
+RETURN (R<<11)+(G<<6)+(B<<1)+A
+END
+
+DEF LTUP(CO,X)'縺・ｍ 縺ｮ 縺ゅ°繧九＆
+DIM A,R,G,B,O=(X+1)/2
+REDB CO OUT A,R,G,B
+RETURN MARE(A,ROUND(R*O),ROUND(G*O),ROUND(B*O))
+END
+
+DEF CACON CX,CY,CZ OUT SX,SY '繧ｫ繝｡繝ｩ縺ｮ縺ｲ繧阪＆
+SX=(CX-SCWH)/CZ
+SY=(CY-SCLT)/CZ
+END
+
+
+DEF LDCON X,Y,Z,SX,SY OUT DX,DY'(XYZ)->(XY)
+DX=(SCWH*X)/(SCWH+Z*SX)
+DY=(SCLT*Y)/(SCLT+Z*SY)
+END
+
+
+
+DEF OP AX,AY,AZ,BX,BY,BZ OUT XX,XY,XZ'縺後＞縺帙″
+'Outer product     (3*3)
+XX=AY*BZ-AZ*BY
+XY=AZ*BX-AX*BZ
+XZ=AX*BY-AY*BX
+END
+
+
+
+
+DEF OUPR(VX1,VY1,VX2,VY2)'縺後＞縺帙″(2*2)
+RETURN VX1*VY2-VX2*VY1
+END
+
+
+DEF DIS(X,Y)'縺ｪ縺後＆
+RETURN SQR(X*X+Y*Y)
+END
+
+
+
+
+DEF LDP VX1,VY1,VX2,VY2,VX3,VY3,VX4,VY4,VPX,VPY OUT VPX2,VPY2'縺ｫ縺倥ｅ縺・○繧薙・繧薙・繧後＞縺ｻ縺・
+
+IF VPX==0&&VPY==0 THEN 
+VPX2=0:VPY2=0
+RETURN
+ENDIF
+
+
+DIM OU1=OUPR(VX1,VY1,VX2,VY2),KP
+
+IF OU1!=0 THEN 
+KP=ABS(OUPR(VX1,VY1,VX2,VY2)/(ABS(OUPR(VX1,VY1,VPX,VPY))+ABS(OUPR(VX2,VY2,VPX,VPY))))
+ELSE 
+VPX2=0:VPY2=0
+RETURN
+ENDIF
+
+
+DIM VDX=VPX*KP-VX1,VDY=VPY*KP-VY1
+
+DIM K2=DIS(VDX,VDY)/DIS(VX2-VX1,VY2-VY1)
+
+DIM VDX2=(VX4-VX3)*K2,VDY2=(VY4-VY3)*K2
+
+
+VPX2=(VX3+VDX2)*(1/KP)
+VPY2=(VY3+VDY2)*(1/KP)
+
+
+VPX2=MAX(MIN(VX3,VX4),VPX2)
+VPX2=MIN(MAX(VX3,VX4),VPX2)
+VPY2=MAX(MIN(VY3,VY4),VPY2)
+VPY2=MIN(MAX(VY3,VY4),VPY2)
+
+
+END
+
+
+DIM TCPVX[4,2],TCPVY[4,2],TCPCX[4],TCPCY[4]
+'繝吶け繝医Ν 縺ｮ 繝代ち繝ｼ繝ｳ
+TCPVX[0,0]=15 :TCPVX[0,1]=0
+TCPVY[0,0]=0  :TCPVY[0,1]=15
+TCPCX[0]=0    :TCPCY[0]=0
+
+TCPVX[1,0]=-15:TCPVX[1,1]=0
+TCPVY[1,0]=0  :TCPVY[1,1]=-15
+TCPCX[1]=15   :TCPCY[1]=15
+
+TCPVX[2,0]=0  :TCPVX[2,1]=15
+TCPVY[2,0]=15 :TCPVY[2,1]=0
+TCPCX[2]=0    :TCPCY[2]=0
+
+TCPVX[3,0]=0  :TCPVX[3,1]=-15
+TCPVY[3,0]=-15:TCPVY[3,1]=0
+TCPCX[3]=15   :TCPCY[3]=15
+
+'3縺九▲縺代＞ 縺ｫ 繝・け繧ｹ繝√Ε 縺ｯ繧・DEF MYTRI X1,Y1,X2,Y2,X3,Y3,TXCP,TXDT,LP',VPX,VPY
+DIM J
+IF Y1==Y2&&Y2==Y3 THEN 
+
+FOR J=MIN(X1,X2,X3) TO MAX(X1,X2,X3)
+DISDP[Y1,J]=SPRI[0,0]
+NEXT J
+RETURN
+ENDIF
+
+DIM CX1=X1,VX1=X2-X1,VX2=X3-X1
+DIM CY1=Y1,VY1=Y2-Y1,VY2=Y3-Y1
+DIM X[3],Y[3],BX[2],O1,O2,KE=1,VPX2,VPY2
+X[0]=X1:X[1]=X2:X[2]=X3'X1:X2:X3
+Y[0]=Y1:Y[1]=Y2:Y[2]=Y3
+
+
+SORT Y,X
+
+BX[0]=X[0]:BX[1]=X[0]
+
+O2=Y[2]-Y[0]
+
+DIM D2=(X[2]-X[0])/(O2+!O2),D1,YY,XX
+
+FOR J=0 TO 1
+ O1=Y[J+1]-Y[J]
+ D1=(X[J+1]-BX[0])/(O1+!O1)
+ INC BX[0],(X[J+1]-BX[0])*!O1
+ 
+ FOR YY=Y[J] TO Y[J+1]-1+J
+ IF YY<0 THEN CONTINUE
+ IF BX[0]>BX[1] THEN KE=-1
+  FOR XX=ROUND(BX[0]) TO ROUND(BX[1]) STEP KE
+  
+  IF XX<0 THEN CONTINUE
+  
+LDP VX1,VY1,VX2,VY2,TCPVX[TXCP,0],TCPVY[TXCP,0],TCPVX[TXCP,1],TCPVY[TXCP,1],XX-CX1,YY-CY1 OUT VPX2,VPY2
+
+DISDP[YY,XX]=LTUP(SPRI[VPY2+TCPCY[TXCP]+SPLTY[TXDT],VPX2+TCPCX[TXCP]+SPLTX[TXDT]],LP)
+
+'SPRI[VPY2,VPX2]
+
+'LTUP(SPRI[VPY2,VPX2],LP)
+'SPRI[VPY2,VPX2]
+
+  NEXT XX
+ INC BX[0],D1
+ INC BX[1],D2
+ NEXT YY
+NEXT J
+
+
+
+END
+
+'(縺倥＆縺上ａ縺・ｌ縺・訷樶響誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ
+
+
+
+
+
+
+
+
+
+
+
+'(3D繝・・繧ｿ繝ｭ繝ｼ繝・誾ｫ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ
+DIM LL=0
+DIM CX=0,CY=0
+DIM LX[LL],LY[LL],LZ[LL],BKS=32
+RESTORE @PNDATA32
+DIM A,B,C,D,E
+READ A
+WHILE A!=-1
+READ B,C
+PUSH LX,A
+PUSH LY,B
+PUSH LZ,C
+READ A
+WEND
+
+LL=LEN(LX)
+DIM LX2[LL],LY2[LL],LZ2[LL]
+
+
+DIM SA1[0],SA2[0],SA3[0],SA4[0],SA5[0]
+RESTORE @SADATA
+READ A
+WHILE A!=-1
+READ B,C,D,E
+PUSH SA1,A
+PUSH SA2,B
+PUSH SA3,C
+PUSH SA4,D
+PUSH SA5,E
+READ A
+WEND
+
+
+
+RESTORE @TXCDATA
+READ A
+WHILE A!=-1
+READ B
+PUSH SPLTX,A
+PUSH SPLTY,B
+READ A
+WEND
+'(3D繝・・繧ｿ繝ｭ繝ｼ繝・訷樶響誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ
+
+
+
+
+
+'(繝ｫ繝ｼ繝励∪縺医§繧・ｓ縺ｳ)誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ
+
+DIM XYR=0,XZR=0,YZR=0
+DIM SSX,SSY,IM
+CACON 400*5,240*5,1000 OUT SSX,SSY
+
+
+'(縺ｲ縺九ｊ縺ｮ繝吶け繝医Ν)誾ｾ誾｡誾ｾ誧俸兜誧俸兜誧俸兜誧俸兜誧・DIM LTX=-1,LTY=1,LTZ=1
+UV -LTX,-LTY,-LTZ OUT LTX,LTY,LTZ
+'誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+
+VAR LB=0
+
+'誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ
+
+
+
+
+'誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲
+'(繝｡繧､繝ｳ繝ｫ繝ｼ繝・誾ｴ誾ｵ誾ｶ誾ｷ誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲
+'誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲
+REPEAT
+IM=MILLISEC
+
+
+'(繧ｭ繝ｼ繝懊・繝峨◎縺・＆)誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・VAR KBD$=INKEY$()   '誧・IF KBD$!="" THEN    '誧・                    '誧・FOR A=0 TO LEN(LX)-1'誧・LX[A]=LX[A]/BKS     '誧・LY[A]=LY[A]/BKS     '誧・LZ[A]=LZ[A]/BKS     '誧・NEXT                '誧・                    '誧・INPUT "Size:",BKS   '誧・BKS=MIN(BKS,64)     '誧・BKS=MAX(BKS,1)      '誧・                    '誧・FOR A=0 TO LEN(LX)-1'誧・LX[A]=LX[A]*BKS     '誧・LY[A]=LY[A]*BKS     '誧・LZ[A]=LZ[A]*BKS     '誧・NEXT                '誧・COLOR 0,0           '誧・CLS                 '誧・COLOR 15,1          '誧・ENDIF               '誧・'誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・
+'(繝懊ち繝ｳ縺昴≧縺・誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+VAR BU=BUTTON()
+LB=(BUTTON()>=16)/4
+IF BU AND 1 THEN DEC YZR,0.1+LB
+IF BU AND 2 THEN INC YZR,0.1+LB
+
+IF BU AND 4 THEN DEC XZR,0.1+LB
+IF BU AND 8 THEN INC XZR,0.1+LB
+
+
+IF XYR>PI()*2 THEN XYR=0
+IF XYR<0 THEN XYR=PI()*2
+IF YZR>PI()*2 THEN YZR=0
+IF YZR<0 THEN YZR=PI()*2
+'誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+
+
+'(縺悶・繧・≧縺帙＞繧・誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・DIM P
+FOR P=0 TO LL-1
+'ROT LX[P]-CX,LY[P]-CY,XYR OUT LX2[P],LY2[P]
+
+ROT LX[P]-CX,LZ[P],XZR OUT LX2[P],LZ2[P]
+
+ROT LY[P]-CY,LZ2[P],YZR OUT LY2[P],LZ2[P]
+
+LDCON LX2[P],LY2[P],LZ2[P],SSX,SSY OUT LX2[P],LY2[P]
+
+INC LX2[P],200
+INC LY2[P],120
+
+NEXT
+'誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+
+'(Z繧ｽ繝ｼ繝・誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+DIM OG[0],SOT[0]
+VAR LI,LII
+FOR LI=0 TO LEN(SA1)-1
+PUSH OG,LZ2[SA1[LI]]+LZ2[SA2[LI]]+LZ2[SA3[LI]]
+PUSH SOT,LI
+NEXT
+RSORT OG,SOT
+'誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+
+
+'(縺ｲ繧・≧縺倥§繧・ｓ縺ｳ)誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+FOR LII=0 TO LEN(SA1)-1
+LI=SOT[LII]
+VAR TX1=LX2[SA1[LI]],TY1=LY2[SA1[LI]],TX2=LX2[SA2[LI]],TY2=LY2[SA2[LI]],TX3=LX2[SA3[LI]],TY3=LY2[SA3[LI]],NX,NY,NZ
+
+OP TX2-TX1,TY2-TY1,LZ2[SA2[LI]]-LZ2[SA1[LI]],TX3-TX1,TY3-TY1,LZ2[SA3[LI]]-LZ2[SA1[LI]] OUT NX,NY,NZ
+
+IF NZ<0 THEN 
+
+UV NX,NY,NZ OUT NX,NY,NZ
+'GTRI TX1,TY1,TX2,TY2,TX3,TY3,LTUP(SA4[LI],LTX*NX+LTY*NY+LTZ*NZ)
+
+'GTRI TX1,TY1,TX2,TY2,TX3,TY3,LTUP(#WHITE,LTX*NX+LTY*NY+LTZ*NZ)
+
+MYTRI ROUND(TX1),ROUND(TY1),ROUND(TX2),ROUND(TY2),ROUND(TX3),ROUND(TY3),SA4[LI],SA5[LI],LTX*NX+LTY*NY+LTZ*NZ
+
+ENDIF
+
+NEXT
+
+'誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+
+
+'(縺ｲ繧・≧縺・誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+GLOAD 0,0,512,512,???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????・◎縺上°縺・※繧・
+LOCATE 0,28:?"繧ｭ繝ｼ繝懊・繝峨ち繝・メ 縺ｧ Size 縺ｸ繧薙％縺・
+LOCATE 0,2:
+'誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+
+VSYNC 1
+
+FILL DISDP,0'繝・・繧ｿ縺励ｇ縺・″繧・
+UNTIL 0
+
+'誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲
+'(繝｡繧､繝ｳ繝ｫ繝ｼ繝・訷樶蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲
+'誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲
+
+
+
+
+'(3D繝・・繧ｿ)誾｢誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ?????????????????????????????????????????????????????,32
+DATA 0,32,0
+DATA 0,32,32
+DATA 32,0,0
+DATA 32,0,32
+DATA 32,32,0
+DATA 32,32,32
+DATA -1
+
+
+@SADATA'3縺九▲縺代＞ 縺ｮ 繝・・繧ｿ
+DATA 0,1,2,0,0
+DATA 3,2,1,1,0
+DATA 0,4,1,0,1
+DATA 5,1,4,1,1
+DATA 0,2,4,2,0
+DATA 6,4,2,3,0
+DATA 1,5,3,0,0
+DATA 7,3,5,1,0
+DATA 4,6,5,2,0
+DATA 7,5,6,3,0
+DATA 2,3,6,0,2
+DATA 7,6,3,1,2
+DATA -1
+
+
+@TXCDATA'繝・け繧ｹ繝√Ε 縺ｮ 繝・・繧ｿ
+DATA 32,304
+DATA 448,48
+DATA 230,352
+DATA -1
+
+'(3D繝・・繧ｿ)訷樶響誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ
+
