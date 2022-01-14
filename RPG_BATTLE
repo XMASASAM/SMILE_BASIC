@@ -1,0 +1,1364 @@
+ACLS:VSYNC:LOCATE ,,-256
+CONX=0:CONY=0
+
+'SP繧偵▽縺上ｋ訷・・訷・・誾ｿ誾ｿ誾ｿ誾ｿ誧齢・訷・・訷・・訷・・誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誧齢・訷・・訷・・訷・・訷・響誾ｿ誾ｿ誾ｿ誾ｿ誾ｿ誧・GPAGE 0,4
+GFILL 0,416,127,511,0
+GPAGE 0,0
+
+FOR X=0 TO 639
+SPDEF X,(X-32*FLOOR(X/32))*16,FLOOR(X/32)*16,16,16,8,8
+NEXT
+'895
+'FOR X=0 TO 1000-640
+X=0
+REPEAT
+X2=X+640:X3=128*(X/14)-512*FLOOR(X/56)'X-32*FLOOR(X/32)*16
+X4=FLOOR(X/56)*16+144
+SPDEF X2   ,X3   ,X4,16,16,8,8
+SPDEF X2+1 ,X3+16,X4,16,16,8,8
+SPDEF X2+2 ,X3+32,X4,16,16,8,8
+SPDEF X2+3 ,X3+48,X4,16,16,8,8
+SPDEF X2+4 ,X3+64,X4,16,16,8,8
+SPDEF X2+5 ,X3+64,X4,16,16,8,8,9
+SPDEF X2+6 ,X3   ,X4,16,16,8,8,9
+SPDEF X2+7 ,X3+16,X4,16,16,8,8,9
+SPDEF X2+8 ,X3+32,X4,16,16,8,8,9
+SPDEF X2+9 ,X3+80,X4,16,16,8,8
+SPDEF X2+10,X3+96,X4,16,16,8,8
+SPDEF X2+11,X3+96,X4,16,16,8,8,9
+SPDEF X2+12,X3+112,X4,16,16,8,8
+SPDEF X2+13,X3+112,X4,16,16,8,8,9
+'?X3;" ";X4:WAIT 10
+INC X,14
+UNTIL X2+14>=1087
+'12345誾・求誾ゐ泣67誾・誾・X=0
+FOR X=0 TO 15
+X2=X*2
+SPDEF X2+1088,X*16,272,16,16,8,8
+SPDEF X2+1089,X*16,272,16,16,8,8,9
+NEXT
+
+
+
+
+
+
+
+
+
+
+
+'<縺・∴縺倥＆縺上ａ縺・ｌ縺・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・'繧ｭ繝ｼ繝懊・繝峨°繧峨・縺励ｅ縺､繧翫ｇ縺・#INKEY2$()>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+DEF INKEY2$()
+A$=INKEY$()
+A=INSTR("QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuiopasdfghjklzxcvbnm縺ゅ＞縺・∴縺翫°縺阪￥縺代％縺輔＠縺吶○縺昴◆縺｡縺､縺ｦ縺ｨ縺ｪ縺ｫ縺ｬ縺ｭ縺ｮ縺ｯ縺ｲ縺ｵ縺ｸ縺ｻ縺ｾ縺ｿ繧繧√ｂ繧・ｆ繧医ｉ繧翫ｋ繧後ｍ繧上ｒ繧薙＝縺・≦縺・♂縺後℃縺舌￡縺斐＊縺倥★縺懊◇縺縺｢縺･縺ｧ縺ｩ縺｣縺ｰ縺ｳ縺ｶ縺ｹ縺ｼ縺ｱ縺ｴ縺ｷ縺ｺ縺ｽ繧・ｅ繧・い繧､繧ｦ繧ｨ繧ｪ繧ｫ繧ｭ繧ｯ繧ｱ繧ｳ繧ｵ繧ｷ繧ｹ繧ｻ繧ｽ繧ｿ繝√ヤ繝・ヨ繝翫ル繝後ロ繝弱ワ繝偵ヵ繝倥・繝槭Α繝繝｡繝｢繝､繝ｦ繝ｨ繝ｩ繝ｪ繝ｫ繝ｬ繝ｭ繝ｯ繝ｲ繝ｳ繝ｼ繧｡繧｣繧･繧ｧ繧ｩ繧ｬ繧ｮ繧ｰ繧ｲ繧ｴ繧ｶ繧ｸ繧ｺ繧ｼ繧ｾ繝繝ゅュ繝・ラ繝・ヰ繝薙ヶ繝吶・繝代ヴ繝励・繝昴Ε繝･繝ｧ繝ｴ繝・,A$)
+ IF A$!=""THEN IF ASC(A$)==8 THEN RETURN "8"
+ IF A==-1 THEN RETURN ""
+ RETURN A$
+END
+'縺ｪ縺ｾ縺医ｒ縺阪ａ繧九ａ縺・ｌ縺・#NAMAK$()>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+DEF NAMAK$()
+ CONX=20:CONY=10:CONBOX 3,10
+ REPEAT
+  A$=INKEY2$()
+  IF A$=="8"&& B>0THEN NAME$=LEFT$(NAME$,B-1)
+  IF A$=="8"      THEN A$=""
+  IF B<4          THEN NAME$=NAME$+A$
+  B=LEN(NAME$)
+  LOCATE 21,11:?" "*8
+  LOCATE 25-(B/2),11:?NAME$+"誾ｹ":WAIT 
+ UNTIL BUTTON(3)==16&& NAME$!=""
+CONL 3,10
+RETURN NAME$
+END
+'縺・■縺ｨ縺ｶ繧・#LP X,Y>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+DEF LP X,Y,MOZI$
+LOCATE X,Y:?MOZI$
+END
+
+'繧縺偵ｓ繧ｹ繧ｯ繝ｭ繝ｼ繝ｫ誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+DEF SURU SP,HOUCOU,BG
+BGOFS 0,0,0,10
+BGOFS 1,0,0,10
+BGSCREEN 0,26,15
+BGSCREEN 1,26,15
+BGFILL 0,-10,0,24,16,BG
+IF HOUCOU==0 THEN 
+ BGFILL 1,25,0,50,16,BG
+ BGANIM 0,0,-200/SP,16,0,0
+ BGANIM 1,0,-200/SP,16,0,0
+ENDIF
+IF HOUCOU==1 THEN 
+ BGFILL 1,0,0,0,16,BG
+ BGANIM 0,0,1,0,0,-200/SP,-16,0,0
+ BGANIM 1,0,1,16,0,-200/SP,0,0,0
+ENDIF
+IF HOUCOU==2 THEN 
+ BGFILL 1,0,0,24,0,BG
+ BGANIM 0,0,1,0,0,-200/SP,0,-16,0
+ BGANIM 1,0,1,0,16,-200/SP,0,0,0
+ENDIF
+IF HOUCOU==3 THEN 
+ BGFILL 1,0,14,24,14,BG
+ BGANIM 0,0,1,0,0,-200/SP,0,16,0
+ BGANIM 1,0,1,0,-16,-200/SP,0,0,0
+ENDIF
+
+END
+
+DEF SPSET2 (X)
+ SPSET 0,509,X OUT SPSE
+RETURN SPSE
+END
+
+'ANME
+DEF REMOV XXX,XX,YY,SPP
+ SPOFS XXX OUT XX1,YY2
+ SPCHR XXX OUT YYY
+ 'SPANIM XXX,3,
+ 'SPANIM XXX,0,-SPP,XX,YY
+ ASP=10/(SPP/2)
+ SPANIM XXX,3,ASP,YYY+1,ASP,YYY,ASP,YYY+2,ASP,YYY,0
+ IF XX-XX1<0 THEN 
+  XX1=XX1-XX
+ ELSE 
+  XX1=XX-XX1
+ ENDIF
+ '?XX;" ";YY
+ SPANIM XXX,0,-X?????????????????????????????????????????????????????JFAST==0 THEN 
+SPOFS SPSE OUT X,Y
+
+'IF X1-X<0 THEN 
+  A=((X1-X)/WT)
+' ELSE 
+  A=(X1-X)/WT
+' ENDIF
+'W=W*A
+XX=X1-X
+'SPANIM 
+'REPEAT
+'?WT*3+3
+DIM JAMPDATA[WT*3+3]
+FOR WAITX=0 TO WT-1
+JAMPDATA[WAITX*3]=1
+S=(XX*XX/4-XX*W+W*W)/(XX*XX/(4*H))-H
+JAMPDATA[WAITX*3+1]=W+X
+JAMPDATA[WAITX*3+2]=Y+S
+'SPOFS SPSE,W+X,Y+S
+'GPSET W+X,Y+S
+'WAIT 
+W=W+A
+NEXT
+'?JAMPDATA[WAITX*WT+1]
+'JAMPDATA[WAITX*WT+2]=Y+S
+
+JAMPDATA[WAITX*3]=1
+'S=(XX*XX/4-XX*W+W*W)/(XX*XX/(4*H))-H
+JAMPDATA[WAITX*3+1]=X1
+JAMPDATA[WAITX*3+2]=Y
+'UNTIL X+W<=X1
+'SPOFS SPSE,X1,Y
+'WAIT 
+SPANIM SPSE,0,JAMPDATA
+END
+
+
+
+DEF DAMEGE(SPSE,X,AIM,TSPD,RG)
+
+IF (AIM+90)/(TSPD+100)*100000<=RND(100000) THEN MISS=1:X=0
+IF (1/5*(AIM-TSPD*1.05)+80)*100>=RND(100000) THEN CRIT=1:X=X*2
+
+P1=0
+X1$=STR$(X)
+IF X<=0&&X!=-1 THEN X1$="0":X=1':BEEP 10,10
+IF MISS==1 THEN X1$="40AA":P1=25:X=1000:BEEP 10,10
+IF CRIT==1&&MISS!=1 THEN BEEP 81,400:RG=-256
+FOR Y=0 TO LEN(STR$(X))-1
+ SPOFS SPSE OUT XXX,YYY
+ IF X1$[Y]=="A" THEN 
+  XX=SPSET2(83)
+ ELSE 
+  XX=SPSET2(48+VAL(X1$[Y])+P1)
+ ENDIF
+ X2=XXX+Y*16-16
+ SPSCALE XX,0.5,0.5
+ SPCOLOR XX,RG
+ SPOFS XX,X2,YYY-8
+ SPANIM XX,0,-20,X2,YYY-32,-30,X2,YYY-64
+ SPANIM XX,4,-20,360
+ IF CRIT!=1 THEN 
+  SPANIM XX,5,-10,1,1
+ ELSE 
+  SPANIM XX,5,-5,2,2,-5,1,1
+ ENDIF
+ 
+ RGBREAD RG OUT R,G,B
+ SPANIM XX,6,20,RGB(R,G,B),-30,RGB(0,R,G,B)
+NEXT
+X=X-MISS*1000
+RETURN X
+END
+
+
+GOTO @1_1_1
+
+@SPAER
+DIM SPANIME[0]
+DIM SPANIME1[0]
+DIM SPANIME2[0]
+DIM SPANIME3[0]
+DIM SPANIME4[0]
+DIM SPANIME5[0]
+DIM SPANIME6[0]
+RETURN
+
+@1_1_1
+
+
+
+
+
+
+
+
+
+
+
+
+
+'<縺薙％縺九ｉ繝励Ο繧ｰ繝ｩ繝>#ST訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・
+'繧ｦ繧｣繝ｳ繝峨え繧ｫ繝ｩ繝ｼ誧俸鎌
+CNWA=200 '誧・CNWR=0   '誧・CNWG=0   '誧・CNWB=0   '誧・'誧俸兜誧俸兜誧俸兜誧俸兜誧俸鴨
+
+'SURU 1,0,540':END
+SPSE=0
+'繧ｹ繝・・繧ｿ繧ｹ誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+LV=0  :ULV$=""
+HP=100:MHP=HP
+MP=0 :MMP=5
+'SIKLLPOINT 6
+AT0=4 '縺ｶ縺､繧翫％縺・￡縺・GD0=1 '縺ｶ縺､繧翫⊂縺・℃繧・MAT=1 '縺ｾ縺ｻ縺・％縺・￡縺・MGD=1 '縺ｾ縺ｻ縺・⊂縺・℃繧・SPD=1 '縺吶・繧・＆
+AIM=1 '繧√＞縺｡繧・≧繧翫▽
+'THP=10
+'TMHP=10
+'TAT0=3 '縺ｶ縺､繧翫％縺・￡縺・'TGD0=1 '縺ｶ縺､繧翫⊂縺・℃繧・'TMAT=1 '縺ｾ縺ｻ縺・％縺・￡縺・'TMGD=1 '縺ｾ縺ｻ縺・⊂縺・℃繧・'TSPD=80 '縺吶・繧・＆
+'TAIM=1 '繧√＞縺｡繧・≧繧翫▽
+'GOTO @SKIP
+SURU 3,2,559
+NAME$=NAMAK$()
+'@SKIP
+
+WAZA$="00000?????????????????????????????????????????????????????[100]
+DIM WAZANAME$[100]
+DIM WAZASYOUHI[100]
+DIM WANO[6]'繧上＊繧峨ｓ縺ｮ繧上＊縺ｰ繧薙＃縺・DIM TEKISYOUSAI$[100]
+DIM CHOE1[10]'縺帙ｓ縺溘￥縺・
+'縺・ｍ縺・ｍ繝・・繧ｿ誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧・X=0
+'繧上＊++++++++++++++++++++++++++++++++++++++++
+RESTORE @DATA_WAZA
+REPEAT
+
+READ WAZANAME$[X],WAZASYOUHI[X]
+'?WAZANAME$[X]
+INC X
+
+UNTIL WA?????????????????????????????????????????????????????++++++++++++
+
+
+X=0
+RESTORE @DATA_TEKISYOUSAI
+REPEAT
+
+READ TEKISYOUSAI$[X]
+'?TEKISYOUSAI$[X]
+
+INC X
+?"QQ"
+UNTIL TEKISYOUSAI$[X-1]==""
+
+
+
+
+
+
+CLS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'縺帙ｓ縺ｨ縺・°縺・＠誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧情鰹誧・
+'#縺帙ｓ縺ｨ縺・■繧・≧ #繝代Λ繝｡繝ｼ繧ｿ縺ｲ繧・≧縺偃兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸鎌
+SPSET 0,509,1244 OUT SPSE:SPCOL SPSE       '誧・SPOFS SPSE,0,0,1:SPSCALE SPSE,5.25,1.75    '誧・SPCOLOR SPSE,RGB(CNWA,CNWR,CNWG,CNWB)      '誧・LP 0,0,"*"+NAME$?????????????????????????????????????????????????????))+"誧・'誧・LP 0,1,"HP:"+STR$(HP)+"/"+STR$(MHP)+"誧・    '誧・LP 0,2,"MP:["+"誧"*5+"]誧・                   '誧・COLOR 13                                   '誧・LP 4,2,"-"*MMP                             '誧・COLOR 15                                   '誧・LP 0,3,"誧・*10+"誧・                          '誧・GPRIO -1
+GLINE 0,25,0,25,RGB(0,100,300)
+'誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸鴨
+'XY 0,4
+'CONBOX 6,7
+'LP 2,5,"縺薙≧縺偵″"
+'LP 2,6,"縺ｼ縺・℃繧・
+'LP 2,7,"繧｢繧､繝・Β"
+'LP 2,8,"縺ｫ縺偵ｋ"
+
+
+
+
+
+
+
+
+
+
+
+
+
+'縺ｯ縺・￠縺・ZIMEN=1:SORA=1
+IF ZIMEN==1 THEN 
+ BGSCALE 3,2,2
+ BGOFS 3,0,0,2
+ BGFILL  3,0,6,12,6,610
+ BGFILL  3,0,7,12,7,642
+ENDIF
+
+BGOFS 2,0,0,1024:BGOFS 1,0,0,1024
+BGSCALE 2,2,2:BGSCALE 1,2,2
+BGOFS 0,0,0,1024
+BGSCALE 0,2,2
+
+IF SORA==1 THEN 
+BGFILL 0,0,0,12,0,607
+BGFILL 0,0,1,12,1,639
+BGFILL 0,0,2,12,2,639
+BGFILL 0,0,3,12,3,639
+BGFILL 0,0,4,12,4,639
+BGFILL 0,0,5,12,5,671
+ENDIF
+
+DIM BGX[4],BGY[4]
+
+SPBG=1
+FAST=1
+
+'縺励ｅ縺倥ｓ縺薙≧======================================
+  SPSET 0,509,640 OUT SPSE3:SPCOL SPSE3
+SPOFS SPSE3,124,170,1
+SPSCALE SPSE3,3,3
+'============================================
+
+'縺ｦ縺・=========================================
+TEKI$="00000001"
+L=LEN(TEKI$)/4
+DIM TID[L]
+DIM TNAME$[L],TSP[L],TSPCO[L],SPSE4[L]
+DIM THP[L],TMHP[L]
+DIM TAT0[L] '縺ｶ縺､繧翫％縺・￡縺・DIM TGD0[L] '縺ｶ縺､繧翫⊂縺・℃繧・DIM TMAT[L] '縺ｾ縺ｻ縺・％縺・￡縺・DIM TMGD[L] '縺ｾ縺ｻ縺・⊂縺・℃繧・DIM TSPD[L] '縺吶・繧・＆
+DIM TAIM[L] '繧√＞縺｡繧・≧繧翫▽
+'縺ｦ縺阪・繧薙＃縺・FOR X2=0 TO L-1
+ TID[X2]=VAL(MID$(TEKI$,X2*4,4))
+NEXT
+
+'****
+FOR YY=0 TO L-1
+DIM TSTE$[10]
+X$=TEKISYOUSAI$[TID[YY]]
+X=0
+FOR X1=0 TO 9
+ REPEAT
+  TSTE$[X1]=TSTE$[X1]+X$[X]
+  INC X
+ UNTIL X$[X]==":"
+ INC X,1
+'?TSTE$[X]
+
+NEXT
+'XX=TID[YY]
+TNAME$[YY]=TSTE$[0]
+   TSP[YY]=VAL(TSTE$[1])
+ TSPCO[YY]=VAL(TSTE$[2])
+   THP[YY]=VAL(TSTE$[3]):TMHP[YY]=THP[YY]
+  TAT0[YY]=VAL(TSTE$[4]) '縺ｶ縺､繧翫％縺・￡縺・  TGD0[YY]=VAL(TSTE$[5]) '縺ｶ縺､繧翫⊂縺・℃繧・  TMAT[YY]=VAL(TSTE$[6]) '縺ｾ縺ｻ縺・％縺・￡縺・  TMGD[YY]=VAL(TSTE$[7]) '縺ｾ縺ｻ縺・⊂縺・℃繧・  TSPD[YY]=VAL(TSTE$[8]) '縺吶・繧・＆
+  TAIM[YY]=VAL(TSTE$[9]) '繧√＞縺｡繧・≧繧翫▽
+
+NEXT
+
+
+FOR X1=0 TO L-1
+  SPSET 0,509,TSP[X1] OUT SPSE4[X1]
+  SPCOL SPSE4[X1]
+SPOFS SPSE4[X1],274+48*X1,170,1
+SPSCALE SPSE4[X1],3,3
+NEXT
+'============================================
+
+'縺ｨ縺・ａ縺・・縺・=====================================
+SPSE5=SPSET2(32)
+SPSCALE SPSE5,2,2
+SPLINK SPSE5,SPSE3
+'===========================================
+
+'HP繝舌・誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+'BACK
+ SPSET 0,509,95 OUT SPSE2:SPCOL SPSE2
+SPHOME SPSE2,1,11:SPCOLOR SPSE2,RGB(0,0,0)
+SPOFS SPSE2,-6,-15,1:SPSCALE SPSE2,3,3
+'
+ SPSET 0,509,1480 OUT SPSE1:SPCOL SPSE1
+SPHOME SPSE1,0,0
+SPOFS SPSE1,0.75,0.5,0:SPSCALE SPSE1,HP/MHP*4.8,1.00005:SPCOLOR SPSE1,RGB(20,300,10)
+IF HP/MHP<=0.02 THEN SPSCALE SPSE1,0.144,1.00005
+SPLINK SPSE1,SPSE2
+SPLINK SPSE2,SPSE3
+'誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+DIM TWAITPOI[L]
+WAITBAR=100
+WAITPOI=0
+TWAITBAR=100
+'TWAITPOI=0
+BTLSPD=20
+'TNAME$="繧ｮ繝ｧ繝悶Μ繝ｧ繝ｳ"
+
+
+
+
+'WAIT繝舌・誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+ SPSE6=SPSET2(95):SPCOL SPSE6
+SPHOME SPSE6,1,11:SPCOLOR SPSE6,RGB(0,0,0)
+SPOFS SPSE6,-6,-10.7,1:SPSCALE SPSE6,3,1
+'
+ SPSE7=SPSET2(1480):SPCOL SPSE7
+SPHOME SPSE7,0,0
+SPOFS SPSE7,0.75,0.5,0:SPSCALE SPSE7,0,1.00005/4:SPCOLOR SPSE7,RGB(255,125,50)
+SPLINK SPSE7,SPSE6
+SPLINK SPSE6,SPSE3
+'縺ｦ縺晃AIT繝舌・誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜
+DIM SPSE8[L],SPSE9[L]
+FOR X1=0 TO L-1
+ SPSE8[X1]=SPSET2(95):SPCOL SPSE8[X1]
+SPHOME SPSE8[X1],1,11:SPCOLOR SPSE8[X1],RGB(0,0,0)
+SPOFS SPSE8[X1],-7.2,-10.7,1:SPSCALE SPSE8[X1],3,1
+'
+ SPSE9[X1]=SPSET2(1480):SPCOL SPSE9[X1]
+SPHOME SPSE9[X1],0,0
+SPOFS SPSE9[X1],0.75,0.5,0:SPSCALE SPSE9[X1],0,1.00005/4:SPCOLOR SPSE9[X1],RGB(255,125,50)
+SPLINK SPSE9[X1],SPSE8[X1]
+SPLINK SPSE8[X1],SPSE4[X1]
+NEXT
+'縺ｦ縺阪・縺ｪ縺ｾ縺稲兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・'SPOFS SPSE4[0] OUT X1,Y1
+'NAMEX=FLOOR(FLOOR(X1/8)-LEN(TNAME$[0])/2)
+
+FOR X1=0 TO L-1
+XY 38,0+3*X1'FLOOR(Y1/8)-
+CONBOX 3,12
+COLOR 15':LOCATE ,,1024
+
+'LP FLOOR(44-LEN(TNAME$[X1])/2),1+3*X1,TNAME$[X1]
+GPUTCHR (44-LEN(TNAME$[X1])/2)*8,8+24*X1,TNAME$[X1],-1
+'LOCATE ,,-256
+NEXT
+
+
+
+
+MPB=0'MP繝舌・
+BGMPLAY 23
+
+MYTURN=0
+FAST1=0
+
+'WAIT繝舌・ 繧ｹ繝斐・繝・============
+DIM WAITSPD[L+1]
+WAITSPD[0]=SPD
+FOR X1=0 TO L-1
+ WAITSPD[X1+1]=TSPD[X1]
+NEXT
+
+RSORT WAITSPD
+MAXSPD=WAITSPD[0]
+
+WAITSPD[0]=BTLSPD*SPD/MAXSPD
+FOR X1=0 TO L-1
+ WAITSPD[X1+1]=BTLSPD*TSPD[X1]/MAXSPD
+NEXT
+
+
+XY 0,26
+'CONL 3,YY+2
+'YY=LEN(INAME$+"   "+IWAZA$)
+CONBOX 3,9
+LP 1,27,"縺帙ｓ縺ｨ縺・°縺・＠"
+
+'GOTO @WINTIME
+
+
+'NEXT
+@STEP0_0
+'XY 0,4
+'CONBOX 6,7
+'LP 2,5,"縺薙≧縺偵″"
+'LP 2,6,"縺ｼ縺・℃繧・
+'LP 2,7,"繧｢繧､繝・Β"
+'LP 2,8,"縺ｫ縺偵ｋ"
+OK1=-1'縺帙ｓ縺溘￥縺・OK2=-1
+OK3=-1
+OK=-1
+FAST1=0
+'DIM CHOE1[10]
+'X4=0
+'FOR X3=0 TO LEN(TEKI$)/4-1
+'IF RIGHT$(TNAME$[X3],1)=="誾ｶ" THEN INC X4
+'IF SPCHK(SPSE4[X3])==TSP[X3]+7 THEN INC X4
+'NEXT
+'IF X4==LEN(TEKI$)/4-1 THEN END
+'繧√＞繧・
+@A
+
+
+GOSUB @HAIKEISUKUROURU
+
+
+
+
+
+
+'MP繝舌・==========
+IF MP!=MMP THEN INC MPB,1*1.5
+IF MPB>=82 THEN MPB=82
+GLINE 0,25,MPB,25,RGB(0,100,300)
+IF (MP!=MMP)&&MPB==82 THEN 
+ GLINE 0,25,MPB,25,RGB(155,155,155)
+ INC MP:MPB=0
+ COLOR 13
+ LP 4,2,"誾ｲ"*MP
+ COLOR 15
+ENDIF
+'--------------------------
+'WAITBAR=100
+'WAITPOI=0
+
+
+
+
+'IF SPD>TSPD[0] THEN 
+'  SPD1=BTLSPD:SPD2=BTLSPD*TSPD[0]/SPD
+' ELSE 
+'  SPD2=BTLSPD:SPD1=BTLSPD*SPD/TSPD[0]
+'ENDIF
+  
+
+'WAIT繝舌・========
+IF (WAITPOI>=WAITBAR) THEN 
+  MYTURN=1':BEEP 12
+ ELSE 
+  INC WAITPOI,WAITSPD[0]
+ 'SPSCALE SPSE7,4.8/100*WAITPOI,1.00005/4
+ IF WAITPOI>WAITBAR THEN  WAITPOI=WAITBAR
+ SPANIM SPSE7,5,-5,4.8/100*WAITPOI,1.00005/4
+ENDIF
+
+IF MYTURN==1&&FAST1==0 THEN 
+' XY 0,4
+' CONBOX 6,7
+' LP 2,5,"縺薙≧縺偵″"
+ 'LP 2,6,"縺ｼ縺・℃繧・
+ 'LP 2,7,"繧｢繧､繝・Β"
+ 'LP 2,8,"縺ｫ縺偵ｋ":
+GOSUB @1_FEASE
+ FAST1=1
+ENDIF
+
+'縺ｦ縺晃AIT繝舌・========
+FOR X1=0 TO L-1
+IF THP[X1]>0 THEN 
+IF TWAITPOI[X1]>=TWAITBAR THEN 
+ ' MYTURN=1
+  TWAITPOI[X1]=TWAITPOI[X1]-100
+ SPANIM SPSE9[X1],5,1,4.7/100*TWAITPOI[X1],1.00005/4:MST=MAINCNT
+  GOSUB @TEKIKOUGEKI':VSYNC 5
+  '@TEKIKOUGEK1
+ ELSE 
+ SPCOLOR SPSE9[X1],RGB(255,125,50)
+
+ IF MYTURN==1 THEN SPCOLOR SPSE9[X1],RGB(100,100,200) 
+  INC TWAITPOI[X1],WAITSPD[X1+1]/(MYTURN*3+1)
+ IF TWAITPOI[X1]>TWAITBAR THEN  
+  'TWAITPOI[X1]=TWAITBAR
+  SPANIM SPSE9[X1],5,-5,4.7,1.00005/4
+ ELSE 
+ SPANIM SPSE9[X1],5,-5,4.7/100*TWAITPOI[X1],1.00005/4
+ ENDIF
+ENDIF
+ENDIF
+
+
+'縺ｦ縺工P
+IF RIGHT$(TNAME$[X1],1)!="誾ｶ"THEN 
+IF THP[X1]>0 THEN 
+'RIGHT$(TNAME$[X1],1)!="誾ｶ"THEN 
+
+ X2=THP[X1]/TMHP[X1]*100
+'LOCATE 10,10?THP[0]
+ 'COLOR 15
+ RG=-1
+ IF X2<50 THEN RG=-8160
+ IF X2<11 THEN RG=-65536
+' IF THP[X1]<=0 THEN RG=RGB(100,100,100):SPANIM SPSE4[X1],3,5,207,5,208,1,32:BEEP 63:SPCLR SPSE8[X1]:SPCLR SPSE9[X1]
+ 'LP NAMEX+1,27,TNAME$[0]
+ GPUTCHR (44-LEN(TNAME$[X1])/2)*8,8+24*X1,TNAME$[X1],RG
+ ELSE 
+  RG=RGB(191,191,191):SPANIM SPSE4[X1],3,5,207,5,208,1,TSP[X1]+7:BEEP 63:SPCLR SPSE8[X1]:SPCLR SPSE9[X1]
+'TNAME$[X1]=TNAME$[X1]+"誾ｶ"
+ GPUTCHR (44-LEN(TNAME$[X1])/2)*8,8+24*X1,TNAME$[X1],RG
+TNAME$[X1]=TNAME$[X1]+"誾ｶ"
+X4=0
+FOR X3=0 TO LEN(TEKI$)/4-1
+IF RIGHT$(TNAME$[X3],1)=="誾ｶ" THEN INC X4
+'IF SPCHK(SPSE4[X3])==TSP[X3]+7 THEN INC X4
+NEXT
+IF X4==LEN(TEKI$)/4 THEN @WINTIME
+
+ENDIF
+' GPUTCHR (44-LEN(TNAME$[X1])/2)*8,8+24*X1,TNAME$[X1],RG
+ENDIF
+
+
+
+
+
+NEXT
+
+
+
+
+
+
+
+
+GOSUB @MYTURN
+
+
+
+
+VSYNC 5
+
+
+
+
+
+
+
+
+GOTO @A
+
+@HAIKEISUKUROURU
+
+'繧ｯ繝｢
+IF XXXXX<=-200 OR XXXX1<=-200 OR FAST==1THEN 
+ IF XXXXX<=-200 THEN LL=1:XX1=1
+ IF XXXX1<=-200 THEN LL=0:XX1=0
+ IF FAST==1 THEN XX1=1:LL=0
+ BGCLR LL+1
+  FOR LL=LL TO XX1
+   BGX[LL*2]=RND(3):BGX[LL*2+1]=RND(3)+6
+   BGY[LL*2]=RND(3):BGY[LL*2+1]=RND(3)
+    FOR XX=RAD(2) TO 1
+     X=LL*2+XX
+     BGOFS LL+1,200,0
+    IF FAST==1 THEN BGOFS LL+1,LL*200,RND(30)
+      FOR X3=1 TO 3
+       BGPUT LL+1,BGX[X]+X3,BGY[X],816+X3
+       BGPUT LL+1,BGX[X]+X3,BGY[X]+1,848+X3
+      NEXT
+     BGPUT LL+1,BGX[X],BGY[X]+1,848
+    NEXT
+  NEXT
+ENDIF:FAST=0
+BGOFS 2 OUT XXXXX,YYYYY
+BGOFS 1 OUT XXXX1,YYYY1
+BGOFS 2,XXXXX-SPBG,YYYYY
+BGOFS 1,XXXX1-SPBG,YYYY1  
+RETURN
+
+
+
+
+
+
+
+
+
+'縺帙ｓ縺溘￥縺・@SENTAKU
+LP CONX+1,CONY+1+CHOE," "
+BUTT=ALBN()
+IF BUTT==1&&CHOE-1>=0 THEN DEC CHOE
+IF BUTT==2&&CHOE<CHO THEN INC CHOE
+IF BUTT==1 OR BUTT==2 THEN BEEP 2
+LP CONX+1,CONY+1+CHOE,"訷・ 
+'COMXX2=CONX+1 CONYY2=CONY+1+CHOE 
+'ENDIF
+IF BUTT==16 THEN OK=CHOE:ST=MAINCNT:CONXX2=CONX+1 CONYY2=CONY+1+CHOE 
+IF BUTT==32 THEN OK=-2:BST=MAINCNT
+
+RETURN 
+
+
+
+@MYTURN
+'繝槭う繧ｿ繝ｼ繝ｳ誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧・'LOCATE 0,20?MYTURN;" ";OK1
+IF MYTURN==1 THEN
+ '繧ｻ繝ｳ繧ｿ繧ｯ繧ｷ訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷?????????????????????????????????????????????????????GOSUB @KOUGEKI,@BOUGYO,@ITEM,@NIGERU
+  'IF OK2==-3 THEN GOSUB @1_FEASE:OK2=-1
+ 'RETURN':GOTO @A
+ ELSE
+  CHO=3:XY 0,4:CHOE=CHOE1[0]
+  GOSUB @SENTAKU
+  CHOE1[0]=CHOE
+  IF OK==-2 THEN OK=-1
+  OK1=OK
+ ENDIF
+ '訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・'IF TANIME==1 THEN GOTO @TEKIKOUGEKI
+'IF OK2==-2 OR (MYTURN==1&&FAST1==0) THEN 
+' XY 0,4
+' CONBOX 6,7
+' LP 2,5,"縺薙≧縺偵″"
+' LP 2,6,"縺ｼ縺・℃繧・
+' LP 2,7,"繧｢繧､繝・Β"
+' LP 2,8,"縺ｫ縺偵ｋ":FAST1=1:OK2=-1
+'ENDIF
+
+ENDIF
+'誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲
+RETURN
+
+
+@1_FEASE
+'IF MYTURN==1&&FAST1==0 THEN 
+ XY 0,4
+ CONBOX 6,7
+ LP 2,5,"縺薙≧縺偵″"
+ LP 2,6,"縺?????????????????????????????????????????????????????"':FAST1=1
+'ENDIF
+RETURN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'縺薙≧縺偵″繝｡繝九Η繝ｼ繝ｼ
+'縺薙％縺ｮ縺ｸ繧薙☆縺・WAZARANIF=0 訷・
+@KOUGEKI
+ IF OK2==-2 THEN 
+  RAN2=0'IF MAINCNT-BST>5 THEN 
+  CONL WAZAX+2,LONGEST+6:
+  OK1=-1:OK=-1:OK2=-1':FAST1=0
+GOSUB @1_FEASE:BEEP 4
+RETURN
+ENDIF
+
+' ?OK2
+''IF OK2==-2 THEN 
+'  RAN2=0IF MAINCNT-BST>5 THEN CONL WAZAX+2,LONGEST+6:BEEP 4:GOTO @STEP0_0
+'RETURN
+'ENDIF
+
+IF STANBAI==1 THEN 
+ 'XY 0,4
+ 'CONL WAZAX+2,LONGEST+6
+ 'LP CONXX2,CONYY2," " 
+ 'OK2=OK22
+ 'IF TANIME==0 THEN STANBAI=0: OK2=OK22:
+ GOSUB  @TEKICHOISE
+ RETURN
+ENDIF
+IF MAINCNT-ST<=5 THEN OK=-1:RETURN
+'2縺九＞繧√＞縺薙≧誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧・IF RAN2==1 THEN 
+ '縺・ｍ縺ｯ繧薙※縺・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・
+ FOR X=0 TO WAZAX-1                 '訷・  IF MP>=WAZASYOUHI[WANO[X]] THEN'訷・    COLOR 7                      '訷・   ELSE  ?????????????????????????????????????????????????????         '訷・  ENDIF                          '訷・  LP LONGEST+2,5+X,"{"+STR$(WAZASYOUHI[WANO[X]])+"}"                           '訷・ NEXT:COLOR 15                   '訷・ '訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・ 
+ 
+ 
+ 
+ 'A BUTTON縺ｯ繧薙※縺・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・ IF OK2!=-1&&OK2!=-2 THEN                '訷・  IF MP>=WAZASYOUHI[WANO[OK2]] THEN 
+  RAN2=0
+  XY 0,4
+  CONL WAZAX+2,LONGEST+6
+  'IF TANIME!=1 THEN 
+  ST1=MAINCNT
+  BEEP 3
+  TEKICEN=SPSET2(197)
+  'SPOFS SPSE4[CHOE1[2]] OUT X3,Y3
+  SPOFS TEKICEN,0,0:
+  SPLINK TEKICEN,SPSE4[CHOE1[2]]
+  'SPSCALE TEKICEN,3,3
+  SPANIM TEKICEN,4,60,0,-10,360,0
+  SPANIM TEKICEN,5,60,3,3,-5,3.5,3.5,-5,3,3,0
+  GOSUB @TEKICHOISE'訷・  'XY 0,4
+ 'CONL WAZAX+2,LONGEST+6
+  'OK2=0
+  OK22=OK2
+  STANBAI=1
+  RETURN
+  ELSE 
+  BEEP 4                       '訷・  ENDIF                         '訷・ ENDIF
+ '訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・
+ CHOE=CHOE1[1]
+ GOSUB @SENTAKU:OK2=OK:CHOE1[1]=CHOE 
+ RETURN'縺帙ｓ縺溘￥縺励∴縺・￥
+ENDIF
+' IF OK2==-2 THEN 
+'  RAN2=0IF MAINCNT-BST>5 THEN CONL WAZAX+2,LONGEST+6:BEEP 4:GOTO @STEP0_0
+'ENDIF
+'誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲
+BEEP 3
+XY 0,4
+WAZAX=0:LONGEST=0
+REPEAT
+WANO[WAZAX]=VAL(MID$(WAZA$,WAZAX*4,4))
+MOZI$[WAZAX]=WAZANAME$[WANO[WAZAX]]
+
+IF LEN(MOZI$[WAZAX])>LONGEST THEN LONGEST=LEN(MOZI$[WAZAX])
+
+INC WAZAX
+UNTIL WAZA$[WAZAX*4]=="!"
+CONL 6,7
+CONBOX WAZAX+2,LONGEST+6
+HYOU WAZAX
+
+
+RAN2=1
+CHO=WAZAX-1
+RETURN
+
+
+
+
+
+
+
+
+
+
+
+
+@BOUGYO
+@ITEM
+@NIGERU
+RETURN
+
+
+
+'縺ｦ縺阪○繧薙◆縺情蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧齢蒲誧・@TEKICHOISE
+ IF OK==-2 THEN 
+'IF MAINCNT-BST>5 THEN 
+  CONL 2+LEN(TEKI$)/4,10
+  OK1=0:OK2=-1:RAN2=0:OK=-1':FAST1=0
+  STANBAI=0
+SPCLR TEKICEN
+'GOSUB @1_FEASE:
+BEEP 4
+RETURN
+ENDIF
+
+XY 0,4:X2=0
+IF MAINCNT-ST1<=5 THEN 
+CONBOX 2+LEN(TEKI$)/4,10
+FOR X3=0 TO LEN(TEKI$)/4-1
+IF THP[X3]>0 THEN 
+ MOZI$[X3]=TNAME$[X3]
+ ELSE 
+MOZI$[X3]=LEFT$(TNAME$[X3],LEN(TNAME$[X3])-1)
+COLOR 14
+ENDIF
+LP 2,5+X3,MOZI$[X3]:COLOR 15
+NEXT
+RETURN
+ENDIF
+
+  'LOCATE 0,20:?"         ";OK3
+
+IF OK3==-1 THEN
+CHO=LEN(TEKI$)/4-1:OK3=OK
+ IF OK3!=-1 THEN 
+  IF THP[OK3]>0 THEN 
+   XY 0,4 
+   CONL 2+LEN(TEKI$)/4,10:BEEP 3:SPCLR TEKICEN:RETURN
+    ELSE 
+   BEEP 4:OK3=-1:OK=-1
+  ENDIF
+ ENDIF
+ ELSE 
+  IF TANIME==0 THEN OK2=OK22:GOTO @KOUGEKIKAISHI
+'LOCATE 0,20:?" "*40
+'LOCATE 0,20:?OK2;" ";OK22;" ";OK3
+
+
+RETURN
+ENDIF
+
+CHOE=CHOE1[2]
+GOSUB @SENTAKU
+IF CHOE!=CHOE1[2] THEN SPLINK TEKICEN,SPSE4[CHOE]
+CHOE1[2]=CHOE
+'?CHOE1[2]
+
+RETURN
+END
+
+
+
+
+
+
+
+
+@KOUGEKIKAISHI
+'BEEP 3
+STANBAI=0
+
+
+SPSCALE SPSE7,0,1.00005/4
+
+
+
+
+
+
+
+'繝溘せ縺後≠繧九°縺ｪ縺・°
+WZO=WANO[OK2]
+'縺・ｍ
+RG=RGB(255,255,255)
+IF WZO==0 THEN 
+ INAME$=NAME$
+ IWAZA$="繧ｹ繝ｩ繝・す繝･"
+ GOSUB @INFORMA
+'繝繝｡繝ｼ繧ｸ繧ｱ繧､繧ｵ繝ｳ
+ DAMEN=ROUND(AT0*1.15-TGD0[OK3]+RND(AT0/30))
+' DEC THP[0],DAMEN
+'縺薙％縺ｧ縺､縺九▲縺溘・繝ｳ繧ｹ繧ｦ SP SPSE X Y W 縺ｪ縺ｩ
+ SP=9
+ SPOFS SPSE4[OK3] OUT X,Y
+ REMOV SPSE3,X-48,Y,SP
+ WAIT (X-48)/(SP*3)
+ SPCHR SPSE5,117
+ SPHOME SPSE5,8,14:SPOFS SPSE5,8,2
+ BEEP 103
+ IF CRIT==1 THEN DAMEN=DAMEN*2:RG=RGB(255,255,0)
+ IF MISS==1 THEN DAMEN=-1:RG=RGB(255,255,255)
+ DAMEN=DAMEGE(SPSE4[OK3],DAMEN,SPD,TSPD[OK3],RG)
+ DEC THP[OK3],DAMEN
+ SPANIM SPSE5,4,1,10,-8,95
+ SPCHR SPSE3,1088
+ WAIT 20/5*SP
+ SPCHR SPSE5,32
+ SPCHR SPSE3,640
+ SPOFS SPSE3 OUT X,Y
+ REMOV SPSE3,X-32,Y,SP
+ WAIT  10/(5/2)/5*SP
+ SPOFS SPSE3 OUT X,Y
+ X1=124
+ SPAB (X-X1)/10*(10-SP)+3*(SP-5),-360
+ JAMP SPSE3,124,64,20
+ WAIT 30
+ SPCHR SPSE3,640
+ WAITPOI=0:MYTURN=0
+ENDIF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'XY 0,4
+'CONL WAZAX+2,LONGEST+6
+
+GOTO @STEP0_0
+
+'繝・く繧ｳ繧ｦ繧ｲ繧ｭ
+@TEKIKOUGEKI
+'DIM SPANIME[0]
+'DIM SPANIME1[0]
+'DIM SPANIME2[0]
+'DIM SPANIME3[0]
+'DIM SPANIME4[0]
+'DIM SPANIME5[0]
+'DIM SPANIME6[0]
+GOSUB @SPAER
+
+@A_TAE
+TANIME=1
+'ST=MAINCNT
+IF MST==MAINCNT THEN 
+  SP=9:SPOFS SPSE4[X1] OUT TSPSEX,TSPSEY
+'BEEP 40
+  INAME$=TNAME$[X1]
+  IWAZA$="縺九∩縺､縺・
+   GOSUB @INFORMA
+   'YY=TID[X1]
+   'REMOV XXX,XX,YY,SPP
+   SPOFS SPSE3 OUT X2,Y2 
+  'REMOV SPSE4[X1],X2+42,Y2,SP
+  PUSH SPANIME,-9
+  PUSH SPANIME,X2+42
+  PUSH SPANIME,Y2
+  PUSH SPANIME,30+10+5
+  PUSH SPANIME,X2+42
+  PUSH SPANIME,Y2
+  'SPSE_SPA=SPSE4[X1]
+  X1_SPA=TSPSEX
+  '?Y2
+  H_SPA=16
+  WT_SPA=10
+  X_1051=X2+42
+  Y_1051=Y2
+  GOSUB @SPANIME_JAMP
+  PUSH SPANIME4,9
+  PUSH SPANIME4,0
+  PUSH SPANIME4,-10
+  PUSH SPANIME4,20
+  PUSH SPANIME4,20
+  PUSH SPANIME4,20
+  PUSH SPANIME4,-5
+  PUSH SPANIME4,-60
+  PUSH SPANIME4,10'+14
+  PUSH SPANIME4,-60
+  PUSH SPANIME4,-3
+  PUSH SPANIME4,0
+
+  
+  SPANIM SPSE4[X1],0,SPANIME
+  SPANIM SPSE4[X1],4,SPANIME4
+  
+  GOSUB @SPAER
+  
+  SPSE100=SPSET2(256)
+  
+   SPSCALE SPSE100,3,3
+SPOFS SPSE100,X2-10,Y2
+  PUSH SPANIME6,39
+  PUSH SPANIME6,0
+  PUSH SPANIME6,1
+  PUSH SPANIME6,-1
+  PUSH SPANIME6,10
+  PUSH SPANIME6,-1
+  PUSH SPANIME6,-31
+  PUSH SPANIME6,0
+  PUSH SPANIME4,1
+  PUSH SPANIME4,-90
+  PUSH SPANIME3,39+7
+  PUSH SPANIME3,256
+  PUSH SPANIME3,15
+  PUSH SPANIME3,257
+  PUSH SPANIME3,1
+  PUSH SPANIME3,32
+
+  
+  
+  
+  SPANIM SPSE100,6,SPANIME6
+  SPANIM SPSE100,4,SPANIME4
+  SPANIM SPSE100,3,SPANIME3
+  
+  INC SINCOU
+ENDIF
+
+
+IF MAINCNT-MST>=30+9&&SINCOU==1 THEN 
+ BEEP 13
+ DAMEN=ROUND(TAT0[X1]*1.15-GD0+RND(TAT0[X1]/30))
+ 'DAMEN=
+ 'DAMEGE(SPSE3,DAMEN,TAIM[X1],SPD,-1)
+ DEC HP,DAMEGE(SPSE3,DAMEN,TAIM[X1],SPD,-1)
+ SPANIM SPSE1,5,-10,HP/MHP*4.8,1.00005
+ LP 3,1,FORMAT$("%3D%S%3D",HP,"/",MHP)
+ INC SINCOU
+ENDIF
+
+
+IF MAINCNT-MST>=10+5+10+30+9+6&&SINCOU==2THEN
+  TANIME=0
+  SINCOU=0
+ENDIF
+GOSUB @MYTURN
+VSYNC 5
+IF TANIME==1 THEN GOTO @A_TAE
+
+
+RETURN
+'GOTO @TEKIKOUGEKI1
+END
+
+
+
+@INFORMA
+BEEP 40
+CONXX=CONX
+CONYY=CONY
+XY 0,26
+CONL 3,YY+2
+YY=LEN(INAME$+"   "+IWAZA$)
+CONBOX 3,YY+2
+LP 1,27,INAME$+" 縺ｮ "+IWAZA$
+'VSYNC 5
+'FOR X2=0 TO 6
+'GOSUB @HAIKEISUKUROURU
+'VSYNC 5
+'NEXT
+'BEEP 12
+'CONL 3,YY+2
+XY CONXX,CONYY
+RETURN
+
+
+
+END
+
+
+
+
+
+
+
+
+@SPANIME_JAMP
+  A_1054=(X1_SPA-X_1051)/WT_SPA
+ XX_SPA=X1_SPA-X_1051
+ W_SPA=0
+FOR WAITX=0 TO WT_SPA/2-1
+ PUSH SPANIME,-2
+ S_1067=(XX_SPA*XX_SPA/4-XX_SPA*W_SPA+W_SPA*W_SPA)/(XX_SPA*XX_SPA/(4*H_SPA))-H_SPA
+ PUSH SPANIME,W_SPA+X_1051
+ PUSH SPANIME,Y_1051+S_1067
+ W_SPA=W_SPA+A_1054*2
+NEXT
+PUSH SPANIME,-2
+PUSH SPANIME,X1_SPA
+PUSH SPANIME,Y_1051
+
+RETURN
+END
+
+
+
+
+
+@WINTIME
+BGMPLAY 5
+SPOFS SPSE3 OUT X3,Y3
+SPOFS SPSE3,X3,Y3,-10
+SPANIM SPSE3,3,2,640,2,649,2,646,2,643,0
+SPANIM SPSE3,0,-25,X3-70,Y3,5,X3-70,Y3,-30,X3*4,Y3
+WAIT 130
+BGMPLAY 7
+GPUTCHR 0,0,"A繝懊ち繝ｳ繧偵♀縺励※縺ｭ",10,10
+REPEAT:UNTIL BUTTON()==16
+END
+
+
+
+
+
+
+
+
+
+
+
+'<縺励◆縺倥＆縺上ａ縺・ｌ縺・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・'XY縺ｮ縺・■縺励※縺・#XY X,Y>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・DEF XY X,Y
+CONX=X:CONY=Y
+END
+'縺薙※縺・・繧薙＠繧・≧ #COBU>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・DEF COBU MOZI$
+ XY 0,25
+ CONBOX 4,50
+ INC CONX:INC CONY
+ LOCATE CONX,CONY
+ SENT MOZI$
+ XY 0,25
+ 'IF CONFE==1 THEN CONL 4,50
+END
+'繧ｻ繝ｳ繝・Φ繧ｹ繧偵・縺ｨ繧ゅ§縺･縺､縺励ｅ縺､縺偵ｓ縺輔○繧九ａ縺・ｌ縺・#SENT>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・DEF SENT MOZI$
+  DIM BU$[10]
+ MCONY=CONY
+ MOZI$=MOZI$+" "
+  FOR X=0 TO LEN(MOZI$)-1
+   LOCATE CONX,CONY
+   MO$=MOZI$[X]
+   ?LEFT$(MOZI$,X)
+   IF MO$=="訷・ THEN 
+    REPEAT:UNTIL BUTTON(3)==16
+    MOZI$=LEFT$(MOZI$,X)+RIGHT$(MOZI$,LEN(MOZI$)-X-1):MO$=MOZI$[X]
+   ENDIF
+   IF MO$=="|"||MO$==";" THEN MOZI$=RIGHT$(MOZI$,LEN(MOZI$)-X-1) 
+   IF MO$=="|" THEN INC CONY:MMCY=CONY-MCONY:BU$[MMCY]=" "*X:X=0
+   IF MO$==";" THEN 
+    REPEAT:UNTIL BUTTON(3)==16
+    LOCATE CONX,CONY:?" "*X
+    CONY=MCONY:X=-1
+     WHILE MMCY>0
+      X=X+1
+      LOCATE CONX,CONY+X:?BU$[X+1]
+      DEC MMCY
+     WEND
+    CONY=MCONY:X=0
+   E?????????????????????????????????????????????????????
+'繧ｳ繝ｳ繧ｽ繝ｼ繝ｫ縺ｮ繧ゅ§縺ｮ繧上￥繧偵＠繧・▽縺偵ｓ縺輔￠繧九ａ縺・ｌ縺・#CONBOX>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・DEF CONBOX TATE,YOCO
+ LOCATE CONX,CONY
+ ?"誧・+"誧・*(YOCO-2)+"誧・
+  FOR X=1 TO TATE-2
+   LOCATE CONX,CONY+X
+   ?"誧・+" "*(YOCO-2)+"誧・
+  NEXT
+ LOCATE CONX,CONY+X
+ ?"誧・+"誧・*(YOCO-2)+"誧・
+ SPSET 511,32:SPOFS 511,CONX*8+4,CONY*8+4,1
+ SPCOL 511
+ IF SPHITSP(511)==-1 THEN 
+ SPSET 0,509,1244 OUT SPSE
+  ELSE 
+  SPSE=SPHITSP(511)
+ ENDIF
+  SPCOL SPSE
+  SPOFS SPSE,CONX*8+4,CONY*8+4,1:
+  SPSCALE SPSE,(YOCO-1)*8/16,(TATE-1)*8/16
+  SPCOLOR SPSE,RGB(CNWA,CNWR,CNWG,CNWB)
+  SPSE=SPSE+1
+ 'ENDIF
+END
+
+'繧ｳ繝ｳ繧ｽ繝ｼ繝ｫ繧偵￠縺・#CONL X,Y>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・DEF CONL TATE,YOCO
+ LOCATE CONX,CONY
+ ?" "+" "*(YOCO-2)+" "
+  FOR X=1 TO TATE-2
+   LOCATE CONX,CONY+X
+   ?" "+" "*(YOCO-2)+" "
+  NEXT
+ LOCATE CONX,CONY+X
+ ?" "+" "*(YOCO-2)+" "
+ X=0
+ SPSPCL=SPSET2(32):SPCOL SPSPCL
+ SPOFS SPSPCL,CONX*8+4,CONY*8+4
+ SPSP=SPHITSP(SPSPCL)
+ 'REPEAT
+  'SPOFS X OUT SX,SY:X=X+1 
+ 'UNTIL CONX*8+4==SX&&CONY*8+4==SY
+ IF SPSP!=-1 THEN SPCLR SPSP':WAIT 1000000
+ SPCLR SPSPCL
+END
+'縺吶∋縺ｦ縺ｮ縺ｼ縺溘ｓ縺ｮ縺昴≧縺輔ｒ縺医＞縺阪ｇ縺・＆縺帙ｋ繧√＞繧後＞ #ALBN()>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・DEF ALBN()
+ STICK OUT SX,SY
+ SX=ROUND(SX):SY=ROUND(SY)
+ IF SY==1  THEN RETURN 1
+ IF SY==-1 THEN RETURN 2
+ IF SX==-1 THEN RETURN 4
+ IF SX==1  THEN RETURN 8
+ RETURN BUTTON()
+END
+'縺ｯ縺・r繝弱・ #YESNO(X,Y)>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・DEF YESNO(X,Y)
+ XY X,Y
+ MCONX=CONX:MCONY=CONY
+ CONBOX 4,6
+ LOCATE CONX+2,CONY+1:?"縺ｯ縺・
+ LOCATE CONX+2,CONY+2:?"縺・＞縺・
+ CCO=0
+ A=CHOSE(1)
+ CONX=MCONX:CONY=MCONY
+ CONL 4,6:RETURN A
+END
+'縺帙ｓ縺溘￥縺励◆縺薙◆縺医・縺吶≧縺倥ｒ縺縺吶ａ縺・ｌ縺・#CHOSE(X)>誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧俸兜誧・DEF CHOSE (MJ)
+ INC CONX:INC CONY
+ MCONY=CONY:IF CCO==0 THEN CCO=CONY
+  REPEAT:MMCY=CCO-MCONY
+   LOCATE CONX,CCO:?" ":WAI=1
+   IF ALBN()==1&&MMCY>0  THEN DEC CCO:WAI=10:BEEP 2
+   IF ALBN()==2&&MMCY<MJ THEN INC CCO:WAI=10:BEEP 2
+   LOCATE CONX,CCO
+   ?"訷・':WAIT' WAI
+   '?" "':WAIT' WAI
+  UNTIL ALBN()==16:BEEP 3:WAIT 10
+ RETURN CCO-MCONY
+END
+
+
+DEF HYOU XX
+ FOR X=0 TO XX
+  LP CONX+2,CONY+1+X,MOZI$[X]
+ NEXT
+END
+
+'HPWITH
+DEF SPAB XX,YY
+ SPANIM SPSE3,4,-XX,YY,1,0
+ SPANIM SPSE2,4,-XX,YY,1,0
+ SPANIM SPSE1,4,-XX,YY,1,0
+ SPANIM SPSE6,4,-XX,YY,1,0
+ SPANIM SPSE7,4,-XX,YY,1,0
+END
+
+
+
+
+'<縺・■縺ｰ繧薙＠縺・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・
+
+
+
+
+
+
+
+
+
+
+
+
+'縺帙ｓ縺ｨ縺・・縺・￠縺・ョ繝ｼ繧ｿ訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・'繧上＊繝・・繧ｿ訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・・訷・@DATA_WAZA
+
+'    縺ｪ縺ｾ縺・   縺励ｇ縺・・MP
+
+DATA "繧ｹ繝ｩ繝・す繝･",0
+DATA "繝代Ρ繝ｼ繧ｹ繝ｩ繝・す繝･",1
+DATA "2繧後ｓ縺弱ｊ",1
+DATA "3繧後ｓ縺弱ｊ",2
+DATA "4繧後ｓ縺弱ｊ",3
+DATA "縺輔∩縺繧後℃繧・,4
+DATA "100繧後ｓ縺弱ｊ",5
+DATA "縺九∴繧薙℃繧・,1
+DATA "",0
+
+@DATA_TEKISYOUSAI
+'n縺ｪ縺ｾ縺・誾ｴSP縺ｰ繧薙＃縺・訷壹＞繧・
+'h=HP a=AT g=GD m=MAT j=MGD s=SPD i=AIM
+DATA "繧ｮ繝ｧ繝悶Μ繝ｧ繝ｳ:940:0:10:3:1:1:1:1:1:"
+DATA  "繧ｴ繧ｦ繝｢繝ｧ繝ｪ:1024:0:10:3:1:1:1:2:1:"
+'DATA "n繧ｮ繝ｧ繝悶Μ繝ｧ繝ｳ誾ｴ934訷・h10a3g1m1j1s1i1
+DATA ""
+
+
+
