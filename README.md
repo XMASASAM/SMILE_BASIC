@@ -10,6 +10,7 @@ SMILE_BASICとはSmileBoom社が開発したプログラミング言語です。
 A*_Algorithm  
 -公開キー:Q3Y4J3AD  
 ![Astar](https://user-images.githubusercontent.com/83535394/149553715-28770d6c-33a9-42a6-a373-b094593d9e19.jpg)  
+動画：<https://www.youtube.com/watch?v=Lld9KBgXFgM>
 自動で迷路を生成し、経路を探索し、正解ルートを出力する作品です。  
 観賞用の作品ですが、面白いですよ。  
 
