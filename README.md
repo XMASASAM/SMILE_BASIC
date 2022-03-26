@@ -53,8 +53,7 @@ RPGのマップを歩き回れます。上のバトルシステムをドッキ�
 Jump_Bridge  
 -公開キー:4NK2NVJXF  
 ![jumpbridge](https://user-images.githubusercontent.com/83535394/149559874-d974eea8-f2c0-4d8a-8d51-438b89746b04.jpg)  
-動画：<>
-
+動画：<https://www.youtube.com/watch?v=fTLxkVZ5bIE>
 
 橋を駆け抜けるゲームです。欠けている箇所をジャンプすると得点をゲットし、より短くジャンプすると高得点を得られます。
 また、巻物を取得するとスピードが速くなります。爽快感があり非常に面白いです。
