@@ -42,6 +42,8 @@ RPG_MAP
 -公開キー:43NJ338D  
 ![map0](https://user-images.githubusercontent.com/83535394/149556719-40d6aebb-08cd-4d97-8be0-582c1e8ab417.jpg)  
 動画：<https://www.youtube.com/watch?v=VlGa_3iGxvg>
+
+
 RPGのマップを歩き回れます。上のバトルシステムをドッキングさせてRPGを作る予定でしたが、
 全体のシステムを作った後は肝心の中身を作らずに終わってしまいました。
 
@@ -52,6 +54,8 @@ Jump_Bridge
 -公開キー:4NK2NVJXF  
 ![jumpbridge](https://user-images.githubusercontent.com/83535394/149559874-d974eea8-f2c0-4d8a-8d51-438b89746b04.jpg)  
 動画：<>
+
+
 橋を駆け抜けるゲームです。欠けている箇所をジャンプすると得点をゲットし、より短くジャンプすると高得点を得られます。
 また、巻物を取得するとスピードが速くなります。爽快感があり非常に面白いです。
 
@@ -60,4 +64,6 @@ Jump_Bridge
 -公開キー:4T3MV43QJ  
 ![neko](https://user-images.githubusercontent.com/83535394/149560858-0c74dfde-7ce2-42c8-b6dd-73dda6eabb7d.jpg)  
 動画：<https://www.youtube.com/watch?v=Uxbk5-VaSV4&t=4s>
+
+
 アクションゲームです。痩せている猫へ猫缶を届けてあげるゲームとなっています。
